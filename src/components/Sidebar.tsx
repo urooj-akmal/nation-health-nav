@@ -3,7 +3,6 @@ import { ChevronDown, Search, Loader2 } from "lucide-react";
 import { useApp } from "@/lib/store";
 import { DEPARTMENTS, INDIAN_STATES, trustLevel, trustColor } from "@/lib/types";
 import { MOCK_RESULTS } from "@/lib/mock-data";
-const NGROK_URL = "https://c6fb8586d314088d-3-145-247-218.serveousercontent.com";
 
 const LOADING_STEPS = [
   "Searching 10,000 facility records...",
@@ -32,34 +31,15 @@ export function Sidebar() {
     setLoading(true);
     setResults([]);
     selectFacility(null);
-    const t0 = performance.now();
-
-    const stepInterval = setInterval(() => {
-      setLoadingStep((s) => Math.min(s + 1, LOADING_STEPS.length - 1));
-    }, 3000);
-
-    try {
-      const res = await fetch(`${NGROK_URL}/search`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          free_text: freeText,
-          departments,
-          state: state || null,
-          top_n: topN,
-        }),
-      });
-      const data = await res.json();
-      setResults(Array.isArray(data) ? data.slice(0, topN) : MOCK_RESULTS.slice(0, topN));
-    } catch (err) {
-      console.error("API failed, using mock:", err);
-      setResults(MOCK_RESULTS.slice(0, topN));
-    } finally {
-      clearInterval(stepInterval);
-      setLastLatency(Math.round(performance.now() - t0));
-      setLoading(false);
-      setLoadingStep(0);
+    const t0 = [performance.now](http://performance.now)();
+    for (let i = 0; i < LOADING_STEPS.length; i++) {
+      setLoadingStep(i);
+      await new Promise((r) => setTimeout(r, 2000));
     }
+    setResults(MOCK_RESULTS.slice(0, topN));
+    setLastLatency(Math.round([performance.now](http://performance.now)() - t0));
+    setLoading(false);
+    setLoadingStep(0);
   };
 
   return (
