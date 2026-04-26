@@ -29,14 +29,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Nation's Health Map" },
+      { name: "description", content: "An Agentic Healthcare Intelligence System for India, enabling citizens to find facilities and admins to identify healthcare gaps." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Nation's Health Map" },
+      { property: "og:description", content: "An Agentic Healthcare Intelligence System for India, enabling citizens to find facilities and admins to identify healthcare gaps." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Nation's Health Map" },
+      { name: "twitter:description", content: "An Agentic Healthcare Intelligence System for India, enabling citizens to find facilities and admins to identify healthcare gaps." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a99afee0-b4c9-4520-9bcb-432d0bd531f4/id-preview-f00ab514--d1acc1c9-5ef6-40b4-b778-289b95fe6b93.lovable.app-1777201698013.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a99afee0-b4c9-4520-9bcb-432d0bd531f4/id-preview-f00ab514--d1acc1c9-5ef6-40b4-b778-289b95fe6b93.lovable.app-1777201698013.png" },
     ],
     links: [
       {
