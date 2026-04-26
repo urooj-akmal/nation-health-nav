@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet.heat";
 import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap, Polyline } from "react-leaflet";
@@ -52,6 +52,10 @@ function HeatLayer() {
 export function MapView() {
   const { results, selectedId, selectFacility, setFlyTo, mode, showHeatmap, toggleHeatmap } = useApp();
   const selected = results.find((r) => r.facility_id === selectedId);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return <div className="flex-1 h-full bg-background" />;
+
 
   return (
     <div className="relative flex-1 h-full">
